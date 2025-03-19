@@ -1,0 +1,51 @@
+analyze_resume:
+  description: >
+    Compare the resume content with the job posting requirements.
+    Create a detailed analysis including:
+    1. Required skills/experience from job posting
+    2. Matching skills/experience in current resume
+    3. Missing or weak areas that need enhancement
+    4. Key keywords and phrases to incorporate
+    5. Specific sections that need updating
+  agent: resume_analyzer
+  expected_output: >
+    A structured analysis report with:
+    - Keyword matches and gaps
+    - Experience alignment analysis
+    - Specific improvement recommendations
+    - Priority areas for updates
+
+edit_resume:
+  description: >
+    Create an updated version of the resume that:
+    1. Incorporates all identified keywords
+    2. Enhances experience descriptions to match requirements
+    3. Adds missing skills and qualifications
+    4. Optimizes format for ATS
+    5. Maintains professional tone and authenticity
+    
+    OUTPUT REQUIREMENT: Start the response with "UPDATED_RESUME:" followed by
+    the complete updated resume content in a clear, formatted structure.
+  agent: resume_editor
+  expected_output: >
+    A complete updated resume with:
+    - Enhanced content matching job requirements
+    - Optimized keywords and phrases
+    - Professional formatting
+    - ATS-friendly structure
+
+review_resume:
+  description: >
+    Perform a comprehensive review of the updated resume:
+    1. Verify all job requirements are addressed
+    2. Check keyword optimization
+    3. Validate formatting and structure
+    4. Ensure professional tone
+    5. Confirm ATS compatibility
+  agent: resume_reviewer
+  expected_output: >
+    A detailed review report with:
+    - Verification of requirements coverage
+    - Keyword optimization check
+    - Format and structure assessment
+    - Final improvement suggestions
