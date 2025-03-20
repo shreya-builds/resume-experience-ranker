@@ -1,54 +1,112 @@
-# Resumebuild Crew
+# Resume Experience Ranker
 
-Welcome to the Resumebuild Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+An AI-powered tool that intelligently analyzes and reranks your professional experiences to create targeted resumes for specific job postings. Using CrewAI agents, this tool helps you present the most relevant experiences for each job application.
 
-## Installation
+## 🎯 What It Does
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+- **Experience Analysis**: Analyzes up to 20 experience bullets from your various professional roles
+- **Job Requirement Matching**: Compares your experiences with job posting requirements
+- **Smart Ranking**: Prioritizes and selects the most relevant experiences for the specific job
+- **ATS Optimization**: Ensures your resume is optimized for Applicant Tracking Systems
+- **Automated Customization**: Creates a tailored resume with the most impactful experiences
 
-First, if you haven't already, install uv:
+## 🤖 How It Works
 
+The system uses three specialized AI agents:
+
+1. **Resume Analyzer**
+   - Analyzes your experience bullets against job requirements
+   - Identifies keyword matches and gaps
+   - Evaluates experience alignment
+   - Suggests specific improvements
+
+2. **Resume Editor**
+   - Transforms content to match job requirements
+   - Optimizes keywords from the job posting
+   - Enhances experience descriptions
+   - Creates ATS-friendly formatting
+
+3. **Resume Quality Controller**
+   - Verifies keyword optimization
+   - Ensures all job requirements are addressed
+   - Validates formatting and structure
+   - Performs final quality checks
+
+## 📋 Prerequisites
+
+- Python 3.8+
+- OpenAI API key
+- Your experience bullets in PDF format
+- Job posting in text format
+
+## 🚀 Installation
+
+1. Clone the repository:
 ```bash
-pip install uv
+git clone https://github.com/shreya-builds/resume-experience-ranker.git
+cd resume-experience-ranker
 ```
 
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
+2. Install dependencies:
 ```bash
-crewai install
-```
-### Customizing
-
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/resumebuild/config/agents.yaml` to define your agents
-- Modify `src/resumebuild/config/tasks.yaml` to define your tasks
-- Modify `src/resumebuild/crew.py` to add your own logic, tools and specific args
-- Modify `src/resumebuild/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
+pip install python-dotenv crewai pyyaml openai PyPDF2
 ```
 
-This command initializes the resumebuild Crew, assembling the agents and assigning them tasks as defined in your configuration.
+3. Create a `.env` file with your OpenAI API key:
+```env
+MODEL=o1-mini
+OPENAI_API_KEY=your_api_key_here
+```
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+## 💻 Usage
 
-## Understanding Your Crew
+1. Prepare your files:
+   - Save your experience bullets in a PDF file
+   - Save the job posting in a text file
+   - Place both files on your desktop
 
-The resumebuild Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+2. Update file paths in `main.py` if needed
 
-## Support
+3. Run the script:
+```bash
+python src/resumebuild/main.py
+```
 
-For support, questions, or feedback regarding the Resumebuild Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+4. Get your optimized resume:
+   - Analysis report of your experiences
+   - Ranked and selected experience bullets
+   - Updated resume in `updated_resume.txt`
 
-Let's create wonders together with the power and simplicity of crewAI.
+## 📁 Project Structure
+
+```
+resumebuild/
+├── src/
+│   └── resumebuild/
+│       ├── config/
+│       │   ├── agents.yaml    # AI agent configurations
+│       │   └── tasks.yaml     # Task definitions
+│       └── main.py           # Main script
+├── .env                      # Environment variables
+└── README.md                # Documentation
+```
+
+## ✨ Features
+
+- **Smart Experience Selection**: Automatically selects the most relevant experiences
+- **Keyword Optimization**: Enhances content with job-specific keywords
+- **ATS Compatibility**: Ensures resume passes ATS systems
+- **Format Preservation**: Maintains professional formatting
+- **Customization**: Creates unique resumes for each job application
+
+## 🤝 Contributing
+
+Feel free to:
+- Open issues
+- Submit pull requests
+- Suggest improvements
+- Share feedback
+
+## 📝 Note
+
+This tool helps optimize your resume but should be used alongside your judgment. Always review and adjust the output to ensure it accurately represents your experiences.
